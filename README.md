@@ -1,3 +1,3 @@
-# rainc-job 前端管理页面
+# rainc-job 前端
 
 基于 vue-element-admin
