@@ -19,7 +19,7 @@ service.interceptors.request.use(
   config => {
     // 如果有token，在头部添加token信息
     if (store.getters.token) {
-      config.headers['RAINC_JOB_IDENTITY'] = getToken()
+      config.headers['rainc-job-identify'] = getToken()
     }
     return config
   },
