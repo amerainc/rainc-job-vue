@@ -37,7 +37,7 @@
           <el-option :value="2" label="进行中" />
         </el-select>
       </el-col>
-      <el-col :span="8">
+      <el-col :span="10">
         <el-date-picker
           v-model="filterTime"
           type="datetimerange"
@@ -49,7 +49,7 @@
           align="right"
         />
       </el-col>
-      <el-col :span="8">
+      <el-col :span="6">
         <el-button
           type="primary"
           icon="el-icon-search"

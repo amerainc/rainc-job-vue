@@ -57,11 +57,6 @@
       >
         Login
       </el-button>
-
-      <div class="tips">
-        <span style="margin-right: 20px">username: admin</span>
-        <span> password: any</span>
-      </div>
     </el-form>
   </div>
 </template>
@@ -73,7 +68,7 @@ export default {
     return {
       // 登录表单
       loginForm: {
-        username: 'rainc',
+        username: 'admin',
         password: '123456'
       },
       // 登录验证规则
