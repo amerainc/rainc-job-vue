@@ -59,13 +59,33 @@ const actions = {
         commit('SET_TOKEN', content)
         // 存入cookie
         setToken(content)
+        // 获取token 
+        var token = content;
+
+        // 创建子域的iframe, 用于传送数据
+        var iframe = document.createElement("iframe");
+        iframe.src = "http://192.168.7.54:9528/#/sso";
+        iframe.style.display = 'none';
+        document.body.append(iframe);
+
+        // 使用postMessage()发送数据到子系统 
+        setTimeout(function() {
+          iframe.contentWindow.postMessage({
+            type: "ssoToken",
+            data: token
+          }, "http://192.168.7.54:9528");
+        }, 2000);
+
+        // 销毁iframe 
+        setTimeout(function() {
+          iframe.remove();
+        }, 4000);
         resolve()
       }).catch(error => {
         reject(error)
       })
     })
   },
-
   // get user info
   getInfo({
     commit

@@ -62,6 +62,10 @@
 </template>
 
 <script>
+import {
+  setToken
+} from '@/utils/auth'
+import Cookies from 'js-cookie'
 export default {
   name: 'Login',
   data() {
@@ -85,6 +89,15 @@ export default {
       passwordType: 'password',
       redirect: undefined
     }
+  },
+  created() {
+    window.addEventListener('message', function(event) {
+
+      if (event.data.type && event.data.type === 'ssoToken') {
+        console.log('收到消息', event.data)
+        setToken(event.data.data)
+      }
+    }, false)
   },
   watch: {
     $route: {
