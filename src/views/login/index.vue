@@ -73,7 +73,8 @@ export default {
       // 登录表单
       loginForm: {
         username: 'admin',
-        password: '123456'
+        password: '123456',
+        rememberMe: true
       },
       // 登录验证规则
       loginRules: {
@@ -92,9 +93,8 @@ export default {
   },
   created() {
     window.addEventListener('message', function(event) {
-
       if (event.data.type && event.data.type === 'ssoToken') {
-        console.log('收到消息', event.data)
+        console.log(event.data.data)
         setToken(event.data.data)
       }
     }, false)
